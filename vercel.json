@@ -1,6 +1,0 @@
-{
-  "buildCommand": "pnpm run build",
-  "outputDirectory": "dist/public",
-  "installCommand": "npm install -g pnpm@9.15.4 && pnpm install --no-frozen-lockfile",
-  "framework": null
-}
