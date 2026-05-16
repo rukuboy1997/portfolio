@@ -41,7 +41,7 @@
                 : 'nav-transparent'}"
         aria-label="Main navigation"
 >
-        <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 min-h-[72px] flex items-center justify-between">
                 <a href="#hero" class="logo-mark font-mono text-sm font-bold tracking-widest" onclick={closeMenu}>
                         <span class="accent-text">&lt;</span>Rukuboy1997<span class="accent-text">/&gt;</span>
                 </a>
@@ -106,7 +106,7 @@
         </div>
 
         {#if menuOpen}
-                <div class="md:hidden mobile-menu">
+                <div class="md:hidden mobile-menu px-2 pb-3">
                         <ul class="flex flex-col gap-1 px-6 pb-4" role="list">
                                 {#each links as link}
                                         <li>

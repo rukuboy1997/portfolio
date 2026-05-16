@@ -102,11 +102,11 @@
 	}
 </script>
 
-<section id="hero" class="hero-section relative flex flex-col items-center justify-center min-h-screen overflow-hidden">
+<section id="hero" class="hero-section relative flex flex-col items-center justify-center min-h-screen overflow-hidden px-2">
 	<canvas bind:this={canvas} class="absolute inset-0 pointer-events-none w-full h-full"></canvas>
 	<div class="radial-glow absolute inset-0 pointer-events-none"></div>
 
-	<div class="relative z-10 w-full max-w-4xl mx-auto px-4 sm:px-6 text-center" class:visible={mounted}>
+	<div class="relative z-10 w-full max-w-5xl mx-auto px-5 sm:px-8 text-center" class:visible={mounted}>
 		<div class="badge font-mono text-xs mb-5 sm:mb-6 inline-flex items-center gap-2 px-3 sm:px-4 py-2 rounded-full">
 			<span class="pulse-dot"></span>
 			Available for opportunities
@@ -131,11 +131,11 @@
 			Based in <span class="accent-text font-medium">Abuja, Nigeria</span> — working globally.
 		</p>
 
-		<div class="flex flex-col xs:flex-row flex-wrap items-center justify-center gap-3 sm:gap-4 mb-10 sm:mb-12">
-			<a href="#projects" class="cta-primary w-full xs:w-auto px-7 py-3 sm:px-8 sm:py-3.5 rounded-xl font-semibold text-sm transition-all text-center">
+		<div class="flex flex-col xs:flex-row flex-wrap items-center justify-center gap-3 sm:gap-4 mb-10 sm:mb-12 w-full max-w-3xl mx-auto">
+			<a href="#projects" class="cta-primary w-full sm:w-auto min-w-[180px] px-7 py-3.5 sm:px-8 sm:py-4 rounded-xl font-semibold text-sm transition-all text-center">
 				View Projects
 			</a>
-			<a href="#contact" class="cta-secondary w-full xs:w-auto px-7 py-3 sm:px-8 sm:py-3.5 rounded-xl font-semibold text-sm transition-all text-center">
+			<a href="#contact" class="cta-secondary w-full sm:w-auto min-w-[180px] px-7 py-3.5 sm:px-8 sm:py-4 rounded-xl font-semibold text-sm transition-all text-center">
 				Get In Touch
 			</a>
 			<a
