@@ -13,8 +13,17 @@
 	--color-text: #e8f4f0;
 	--color-text-muted: #8ba3b8;
 	--color-text-faint: #4a6274;
+
 	--font-sans: 'Inter', system-ui, sans-serif;
 	--font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+
+	/* spacing system */
+	--container-width: 1200px;
+	--section-spacing: 7rem;
+	--section-spacing-mobile: 4.5rem;
+	--radius-lg: 24px;
+	--radius-md: 18px;
+	--radius-sm: 12px;
 }
 
 .light {
@@ -45,10 +54,40 @@ body {
 	font-family: var(--font-sans);
 	background-color: var(--color-bg);
 	color: var(--color-text);
-	line-height: 1.6;
-	padding: 5px;
+	line-height: 1.7;
 	overflow-x: hidden;
-	transition: background-color 0.3s ease, color 0.3s ease;
+	transition:
+		background-color 0.3s ease,
+		color 0.3s ease;
+}
+
+/* Better responsive spacing */
+section {
+	padding-block: var(--section-spacing);
+}
+
+/* Prevent content touching screen edges */
+.container-shell {
+	width: min(var(--container-width), 100% - 2rem);
+	margin-inline: auto;
+}
+
+/* Better spacing on larger screens */
+@media (min-width: 768px) {
+	.container-shell {
+		width: min(var(--container-width), 100% - 4rem);
+	}
+}
+
+/* Mobile spacing */
+@media (max-width: 768px) {
+	section {
+		padding-block: var(--section-spacing-mobile);
+	}
+
+	.container-shell {
+		width: min(var(--container-width), 100% - 1.5rem);
+	}
 }
 
 ::selection {
@@ -59,51 +98,58 @@ body {
 ::-webkit-scrollbar {
 	width: 6px;
 }
+
 ::-webkit-scrollbar-track {
 	background: var(--color-bg);
 }
+
 ::-webkit-scrollbar-thumb {
 	background: var(--color-accent);
-	border-radius: 3px;
+	border-radius: 999px;
 }
 
 a {
 	color: var(--color-accent);
 	text-decoration: none;
-	transition: opacity 0.2s;
+	transition:
+		opacity 0.2s ease,
+		color 0.2s ease;
 }
+
 a:hover {
-	opacity: 0.8;
+	opacity: 0.85;
 }
 
 .font-mono {
 	font-family: var(--font-mono);
 }
 
-/* Focus styles for accessibility */
+/* Accessibility */
 :focus-visible {
 	outline: 2px solid var(--color-accent);
 	outline-offset: 3px;
-	border-radius: 4px;
+	border-radius: 6px;
 }
 
-/* Skip to main content */
+/* Skip nav */
 .skip-nav {
 	position: absolute;
 	top: -100%;
 	left: 1rem;
 	background: var(--color-accent);
 	color: var(--color-bg);
-	padding: 0.5rem 1rem;
-	border-radius: 0 0 8px 8px;
+	padding: 0.75rem 1rem;
+	border-radius: 0 0 10px 10px;
 	font-weight: 600;
 	z-index: 9999;
 	transition: top 0.2s;
 }
+
 .skip-nav:focus {
 	top: 0;
 }
 
+/* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
 	*,
 	*::before,
@@ -115,6 +161,7 @@ a:hover {
 	}
 }
 
+/* Background glow */
 body::before {
 	content: '';
 	position: fixed;
@@ -131,19 +178,88 @@ main {
 	overflow: hidden;
 }
 
-.container-shell {
-	max-width: 72rem;
-	margin-inline: auto;
-	padding-inline: 1.25rem;
-}
-
+/* Glass effect */
 .glass-panel {
 	background: rgba(17, 24, 39, 0.72);
 	backdrop-filter: blur(18px);
+	-webkit-backdrop-filter: blur(18px);
 	border: 1px solid var(--color-border);
 	box-shadow: 0 10px 40px rgba(0,0,0,0.18);
+	border-radius: var(--radius-lg);
 }
 
 .light .glass-panel {
 	background: rgba(255,255,255,0.82);
+}
+
+/* Reusable button styles */
+.btn-primary {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.5rem;
+
+	padding: 0.95rem 1.4rem;
+
+	border-radius: 999px;
+
+	background: var(--color-accent);
+	color: var(--color-bg);
+
+	font-weight: 600;
+
+	transition:
+		transform 0.2s ease,
+		box-shadow 0.2s ease,
+		opacity 0.2s ease;
+}
+
+.btn-primary:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 12px 30px var(--color-accent-glow);
+}
+
+.btn-secondary {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+
+	padding: 0.95rem 1.4rem;
+
+	border-radius: 999px;
+
+	border: 1px solid var(--color-border);
+
+	background: transparent;
+	color: var(--color-text);
+
+	font-weight: 600;
+
+	transition:
+		transform 0.2s ease,
+		background 0.2s ease;
+}
+
+.btn-secondary:hover {
+	transform: translateY(-2px);
+	background: rgba(255,255,255,0.04);
+}
+
+/* Typography improvements */
+h1,
+h2,
+h3,
+h4 {
+	line-height: 1.15;
+	letter-spacing: -0.03em;
+}
+
+p {
+	color: var(--color-text-muted);
+}
+
+/* Images */
+img {
+	max-width: 100%;
+	display: block;
 }
